@@ -3,7 +3,7 @@ $(function(){
         ime: 'Суперпозиција устаљеног одзива',
         opis: 'Септембар 2009. - први задатак',
         slika: 'sept2009.1.png',
-        tekst: 'Електрично коло са слике има познате вредности елемената:  L1 = L ,  L2 = 2L , C1 = C , C2 = 2C ,  R1 = R2 = R. Одзив је устаљен.  Одредити напон струјног изворa.',
+        tekst: 'Електрично коло са слике има познате вредности елемената:  L<sub>1</sub> = L,  L<sub>2</sub> = 2L, C<sub>1</sub> = C, C<sub>2</sub> = 2C , R<sub>1</sub> = R<sub>2</sub> = R. Одзив је устаљен.  Одредити напон струјног изворa.',
         parametri: [
                 new Parametar({naziv: 'R', jednakoNuli: false, pvrednost: 20}),
                 new Parametar({naziv: 'C', jednakoNuli: false, pvrednost: 0.5}),
