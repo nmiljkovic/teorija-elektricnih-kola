@@ -4,8 +4,8 @@ Teorija električnih kola
 Projekat je napravljen u edukacione svrhe. Live preview se može naći na http://proof.github.com/tek i može da kasni par verzija u odnosu na trenutan source.
 
 Autori:
-* Nemanja Miljković (proof1337@gmail.com)
-* Marin Markić (mane90bg@gmail.com)
++ Nemanja Miljković (proof1337@gmail.com)
++ Marin Markić (mane90bg@gmail.com)
 
 
 Dodavanje zadataka
@@ -49,44 +49,44 @@ Atributi zadatka se mogu postavljati na 2 načina:
 Ovde će se koristiti prvi oblik.
 
 Od atributa, Zadatak ima:
-* ime - Ime zadatka, mora biti unikatno
-* opis - Kratak opis zadatka
-* slika - Ime slike zadatka, koje se automatski traže u `zadaci/slike`
-* tekst - Tekst zadatka
-* parametri - Niz parametara
-* pobude - Niz pobuda
-* odzivi - Niz odziva
-* slug - Automatski generisano od imena, koristi se za url
++ ime - Ime zadatka, mora biti unikatno
++ opis - Kratak opis zadatka
++ slika - Ime slike zadatka, koje se automatski traže u `zadaci/slike`
++ tekst - Tekst zadatka
++ parametri - Niz parametara
++ pobude - Niz pobuda
++ odzivi - Niz odziva
++ slug - Automatski generisano od imena, koristi se za url
 
 ### Parametri
 
 Parametar predstavlja neku promenljivu koja se može naći u jednačinama odziva i pojavljuje se na strani kao textbox koji može da se edituje.
 
 Od atributa, Parametar ima:
-* naziv - Naziv parametra. Moguće je koristiti latex.
-* jedinica - Jedinica koja se koristi za parametar
-* pvrednost - Početna vrednost
-* manjeOdNule - Boolean: ako je "true", dozvoljava se da parametar bude manji od nule
-* jednakoNuli - Boolean: ako je "true", dozvoljava se da parametar bude jednak nuli
++ naziv - Naziv parametra. Moguće je koristiti latex.
++ jedinica - Jedinica koja se koristi za parametar
++ pvrednost - Početna vrednost
++ manjeOdNule - Boolean: ako je "true", dozvoljava se da parametar bude manji od nule
++ jednakoNuli - Boolean: ako je "true", dozvoljava se da parametar bude jednak nuli
 
 Ne moraju se definisati svi atributi prilikom kreiranja Parametra, već se vrši provera naziva i u odnosu na neka pravila postavljaju se početne vrednosti:
-* naziv je R ili počinje sa R_ - u pitanju je otpornost
++ naziv je R ili počinje sa R_ - u pitanju je otpornost
     jedinica - ohm
     manjeOdNule - false
     jednakoNuli - true
-* naziv je L ili počinje sa L_ - u pitanju je induktivnost
++ naziv je L ili počinje sa L_ - u pitanju je induktivnost
     jedinica - H
     manjeOdNule - false
     jednakoNuli - true
-* naziv je C ili počinje sa C_ - u pitanju je kapacitivnost
++ naziv je C ili počinje sa C_ - u pitanju je kapacitivnost
     jedinica - F
     manjeOdNule - false
     jednakoNuli - true
-* naziv je I ili počinje sa I_ - u pitanju je struja
++ naziv je I ili počinje sa I_ - u pitanju je struja
     jedinica - A
     manjeOdNule - true
     jednakoNuli - true
-* naziv je (U ili E) ili počinje sa (U_ ili E_) - u pitanju je napon
++ naziv je (U ili E) ili počinje sa (U_ ili E_) - u pitanju je napon
     jedinica - V
     manjeOdNule - true
     jednakoNuli - true
@@ -111,11 +111,11 @@ Pobuda sadrži samo `naziv` i `formula` od atributa.
 ### Odzivi
 
 Odzivi sadrže sledeće atribute:
-* naziv - Ime napona/struje čiji se odziv traži
-* formula - Formula odziva u latex-u
-* grafik - Funkcija koja prima određene argumente, i vraća vrednost odziva
-* t - Vreme do kog će se prvi put iscrtati grafik
-* cache - Funkcija u kojoj se mogu neke konstante izračunati
++ naziv - Ime napona/struje čiji se odziv traži
++ formula - Formula odziva u latex-u
++ grafik - Funkcija koja prima određene argumente, i vraća vrednost odziva
++ t - Vreme do kog će se prvi put iscrtati grafik
++ cache - Funkcija u kojoj se mogu neke konstante izračunati
 
 Za razliku od parametara i pobuda, oni imaju više atributa, pa ih je najbolje napraviti posebno, a onda dodati zadatku:
 
