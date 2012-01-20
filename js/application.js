@@ -5,9 +5,11 @@ $(function(){
             'zadatak/:slug': 'zadatak'
         },
         izborZadataka: function() {
+            $('header a').addClass('active');
             IzaberiZadatakView.render();
         },
         zadatak: function(slug) {
+            $('header a').removeClass('active');
             ZadatakView.postaviZadatak(ZadaciFindBySlug(slug));
             ZadatakView.render();
             if (MathJax != undefined)
