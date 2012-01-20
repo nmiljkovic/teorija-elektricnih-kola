@@ -3,7 +3,7 @@ Teorija električnih kola
 
 Projekat je napravljen u edukacione svrhe. Live preview se može naći na http://proof.github.com/tek i može da kasni par verzija u odnosu na trenutan source.
 
-Autori:
+### Autori:
 + Nemanja Miljković (proof1337@gmail.com)
 + Marin Markić (mane90bg@gmail.com)
 
