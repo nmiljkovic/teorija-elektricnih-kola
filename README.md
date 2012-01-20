@@ -171,6 +171,13 @@ Nakon toga je potrebno zadatak dodati u niz zadataka nazvan `Zadaci`:
 
 And that's it!
 
+Ukoliko ste napravili nov fajl i napisali zadatak u njemu, on mora da se doda u `index.html`:
+
+    <!-- zadaci ovde -->
+    <script type="text/javascript" src="zadaci/kolokvijum.2011.js"></script>
+    <script type="text/javascript" src="zadaci/ispit.2009.js"></script>
+    <script type="text/javascript" src="zadaci/vasfajl.js"></script>
+
 Bugovi
 ======
 
