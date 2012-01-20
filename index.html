@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Теорија Електричних Кола</title>
+
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/mustache.js"></script>
+    <script type="text/javascript" src="js/backbone.js"></script>
+    <script type="text/javascript" src="js/models.js"></script>
+    <script type="text/javascript">Zadaci = [];</script>
+
+    <!-- zadaci ovde -->
+    <script type="text/javascript" src="zadaci/kolokvijum.2011.js"></script>
+    <script type="text/javascript" src="zadaci/ispit.2009.js"></script>
+
+    <script type="text/javascript" src="js/views.js"></script>
+    <script type="text/javascript" src="js/application.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="css/application.css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans&subset=latin,cyrillic,latin-ext' rel='stylesheet' type='text/css'>
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({displayAlign: 'left'});
+    </script>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="span16">
+                <h2>Теорија Електричних Кола</h2>
+                
+                <a href="#izbor-zadataka" rel="mad">Изабери Задатак</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="row" id="content">
+            <div class="span16">Немате укључен javascript!</div>
+        </div>
+    </div>
+
+    <footer class="container">
+        Урадили <a href="mailto: proof1337@gmail.com">Немања Миљковић</a> и
+        <a href="mailto: mane90bg@gmail.com">Марин Маркић</a> за предмет
+        <a href="http://tek.etf.rs/">Теорија Електричних Кола</a> на 
+        <a href="http://etf.rs">Електротехничком факултету</a>.
+    </footer>
+
+    <!-- templates -->
+    <script type="text/template" id="izbor-zadataka-tpl">
+        <div class="span16">
+        {{#zadaci}}
+        <a href="#zadatak/{{attributes.slug}}" rel="mad" class="thumbLink">
+            <img src="zadaci/slike/{{attributes.slika}}" alt="{{attributes.opis}}" />
+            <span class="title">{{attributes.ime}}</span>
+            <span class="desc">{{attributes.opis}}</span>
+        </a>
+        {{/zadaci}}
+        </div>
+    </script>
+
+    <script type="text/template" id="zadatak-tpl">
+        <div class="span16">
+        <div class="row">
+            <div class="span7">
+            <img src="zadaci/slike/{{slika}}" alt="{{opis}}" style="max-width: 100%" />
+            </div>
+            <div class="span9">
+                <h1 class="title">{{ime}}</h1>
+                <p class="desc">{{opis}}</p>
+                <p>{{&tekst}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span3" id="parametri">
+                <h2>Параметри</h2>
+                <ul>
+                {{#parametri}}
+                    <li>
+                        <label for="">\( {{attributes.naziv}} = \)</label>
+                        <input type="text" name="{{attributes.naziv}}" value="{{attributes.vrednost}}"> <span class="unit">\( {{&attributes.jedinica}} \)</span>
+                    </li>
+                {{/parametri}}
+                    <li><a href="#" class="btn primary" id="edit-values">Iзмени</a></li>
+                    <li><a href="#" class="btn" id="reset-values">Постави подразумеване</a></li>
+                </ul>
+            </div>
+            <div class="span4" id="pobude">
+                <h2>Побуде</h2>
+                <ul>
+                {{#pobude}}
+                    <li>\[ \begin{aligned} {{attributes.naziv}} = {{&attributes.formula}} \end{aligned} \]</li>
+                {{/pobude}}
+                </ul>
+            </div>
+            <div class="span9" id="odzivi">
+                <h2>Одзиви</h2>
+                <ul>
+                {{#odzivi}}
+                    <li>
+                        \[ \begin{align*} {{attributes.naziv}} = {{&attributes.formula}} \end{align*} \]
+                        <div class="response">
+                        <canvas width="520" height="160" />
+                        <div class="slider" data-name="{{attributes.naziv}}"></div>
+                        <div class="slider-value"></div>
+                        <div class="mode">
+                            <input type="radio" id="{{attributes.naziv}}scroll-1" data-mode="1" name="radio" />
+                                <label for="{{attributes.naziv}}scroll-1">мање од секунде</label>
+                            <input type="radio" id="{{attributes.naziv}}scroll-2" data-mode="2" name="radio" />
+                                <label for="{{attributes.naziv}}scroll-2">до 10 секунди</label>
+                            <input type="radio" id="{{attributes.naziv}}scroll-3" data-mode="3" name="radio" />
+                                <label for="{{attributes.naziv}}scroll-3">до 100 секунди</label>
+                            <input type="radio" id="{{attributes.naziv}}scroll-4" data-mode="4" name="radio" />
+                                <label for="{{attributes.naziv}}scroll-4">до 1000 секунди</label>
+                        </div>
+                        </div>
+                    </li>
+                {{/odzivi}}
+                </ul>
+            </div>
+        </div>
+        </div>
+    </script>
+
+</body>
+</html>
