@@ -219,6 +219,8 @@ var Odziv = Backbone.Model.extend({
             return;
         }
 
+        if (t0 == t1) return {points: [], max: 0, min: 0};
+
         var points = {
             points: undefined,
             max: -10000000,
