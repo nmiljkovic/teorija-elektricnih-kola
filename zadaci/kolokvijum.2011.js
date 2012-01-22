@@ -3,7 +3,7 @@ $(function(){
         ime: 'Устаљен одзив',
         opis: 'Колоквијум 2011. - први задатак',
         slika: 'kol2011.1.png',
-        tekst: 'Прекидач је затворен и одзив је устаљен. У тренутку <em>t<sub>0</sub></em> прекидач се отвара. Одредити тренутну вредност напона кондензатора, за <em>t > t<sub>0</sub></em>, ако је L = CR<sup>2</sup>.',
+        tekst: 'Прекидач је затворен и одзив је устаљен. У тренутку <em>t<sub>0</sub></em> прекидач се отвара. Одредити тренутну вредност напона кондензатора, за <em>t > t<sub>0</sub></em>, ако је <em>L = CR<sup> 2</sup></em>.',
         parametri: [
                 new Parametar({naziv: 'R', jednakoNuli: false, pvrednost: 3}),
                 new Parametar({naziv: 'C', jednakoNuli: false, pvrednost: 1}),
@@ -38,7 +38,7 @@ $(function(){
         ime: 'Потпуни одзив',
         opis: 'Колоквијум 2011 - други задатак',
         slika: 'kol2011.2.png',
-        tekst: 'Вредности елемената електричног кола су познате. R<sub>1</sub> = R<sub>2</sub> = 2R и <em>t<sub>0</sub></em> = 0. Одредити струју калема за <em>t > t<sub>0</sub></em>.',
+        tekst: 'Вредности елемената електричног кола су познате. <em>R<sub>1</sub></em> = <em>R<sub>2</sub></em> = <em>2R</em> и <em>t<sub>0</sub></em> = 0. Одредити струју калема за <em>t > t<sub>0</sub></em>.',
         parametri: [
                 new Parametar({naziv: 'R', jednakoNuli: false, pvrednost: 30}),
                 new Parametar({naziv: 'L', jednakoNuli: false, pvrednost: 20}),
