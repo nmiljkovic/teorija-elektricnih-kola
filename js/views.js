@@ -149,7 +149,8 @@ $(function(){
             
             var cwidth = canvas.attr('width'), cheight = canvas.attr('height');
             var pointsCnt = cwidth;
-            var points = this.odziv.getPoints(this.zadatak.get('paramsConfig'), this.odziv.get('t0'), this.odziv.get('t'), pointsCnt);
+            var points = this.odziv.getPoints(this.zadatak.get('paramsConfig'), this.odziv.get('t0'), this.odziv.get('t'), pointsCnt,
+                $('.slider', this.el).slider('max'));
 
             var dx = (cwidth) / pointsCnt;
             var dy = cheight / 2 / Math.max(Math.abs(points.max), Math.abs(points.min)) * 0.90;

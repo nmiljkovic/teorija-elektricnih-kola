@@ -213,7 +213,7 @@ var Odziv = Backbone.Model.extend({
         });
         this.trigger('change:t');
     },
-    getPoints: function(constants, t0, t1, count) {
+    getPoints: function(constants, t0, t1, count, maxtime) {
         if (this.get('grafik') == undefined) {
             console.log('Grafik nije dat za pobudu ' + this.get('naziv'));
             return;
@@ -234,6 +234,14 @@ var Odziv = Backbone.Model.extend({
             this.set({cached: {}});
 
         points.points = [];
+
+        if (t0 != 0) {
+            for (t = 0; t < t0; t+= diff) {
+                p = -this.get('grafik')(constants, t, this.get('cached'));
+                if (points.max < p) points.max = p;
+                if (points.min > p) points.min = p;
+            }
+        }
         
         for (t = t0; t < limit; t += diff)
         {
@@ -241,6 +249,14 @@ var Odziv = Backbone.Model.extend({
             points.points.push(p);
             if (points.max < p) points.max = p;
             if (points.min > p) points.min = p;
+        }
+
+        if (maxtime != undefined) {
+            for (; t < maxtime; t += diff) {
+                p = -this.get('grafik')(constants, t, this.get('cached'));
+                if (points.max < p) points.max = p;
+                if (points.min > p) points.min = p;
+            }
         }
 
         return points;
