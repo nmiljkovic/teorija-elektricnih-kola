@@ -15,8 +15,8 @@ $(function(){
     });
 
     var Uc_odziv = new Odziv({
-        naziv: 'U_c',
-        formula: 'E + e^{-\\frac{t}{2 R C}} [E cos(\\frac{\\sqrt{3}}{2 R C} t) + \\frac{E}{\\sqrt{3}} sin(\\frac{\\sqrt{3}}{2 R C} t)]',
+        naziv: 'u_c',
+        formula: 'E + e^{-\\frac{t - t_0}{2 R C}} [E cos(\\frac{\\sqrt{3}}{2 R C} (t - t_0)) + \\frac{E}{\\sqrt{3}} sin(\\frac{\\sqrt{3}}{2 R C} (t - t_0))]',
         grafik: function(c, t, cc) {
             return c.E + Math.exp(-t * cc.halfRC) * (c.E * Math.cos(cc.sqrt3 * cc.halfRC * t) + c.E / cc.sqrt3 * Math.sin(cc.sqrt3 * cc.halfRC * t));
         },
@@ -47,13 +47,13 @@ $(function(){
                 new Parametar({naziv: 'U_m', pvrednost: 220})
             ],
         pobude: [
-                new Pobuda({naziv: 'U_g', formula: 'U_m h(t)'}),
-                new Pobuda({naziv: 'I_g', formula: 'I_m e^{-t\\frac{R}{L}} h(t)'})
+                new Pobuda({naziv: 'u_g', formula: 'U_m h(t)'}),
+                new Pobuda({naziv: 'i_g', formula: 'I_m e^{-t\\frac{R}{L}} h(t)'})
             ]
     });
     
     var Il_odziv = new Odziv({
-        naziv: 'I_L',
+        naziv: 'i_L',
         formula: 'I_0 e^{- \\frac{R}{L} t} + \\frac{R}{L} I_m t e^{- \\frac{R}{L} t} h(t) + \\frac{1}{2 R} U_m (-e^{-\\frac{R}{L} t} + 1) h(t)',
         grafik: function(c, t) {
             return c.I_0 * Math.exp(-t * c.R/c.L) + c.R/c.L * c.I_m * t * Math.exp(-t * c.R/c.L)  + 1 / ( 2 * c.R) * c.U_m * (-Math.exp(-t * c.R/c.L) + 1);

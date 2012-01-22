@@ -11,12 +11,12 @@ $(function(){
                 new Parametar({naziv: 'I', pvrednost: 1})
             ],
         pobude: [
-                new Pobuda({naziv: 'I_g', formula: 'I + I sin(\\frac{t}{\\sqrt{LC}}) + \\\\ I cos(\\frac{t}{2\\sqrt{LC}})'})
+                new Pobuda({naziv: 'i_g', formula: 'I + I sin(\\frac{t}{\\sqrt{LC}}) + \\\\ I cos(\\frac{t}{2\\sqrt{LC}})'})
             ]
     });
 
     var U_odziv = new Odziv({
-        naziv: 'U',
+        naziv: 'u',
         formula: '\\frac{IR}{2} + IR sin(\\frac{t}{\\sqrt{LC}}) + IR cos(\\frac{t}{2\\sqrt{LC}})',
         grafik: function(c, t) {
             return c.I + c.I * Math.sin(t / Math.sqrt(c.L * c.C)) + c.I * Math.cos(t / ( 2 * Math.sqrt(c.L * c.C)));
