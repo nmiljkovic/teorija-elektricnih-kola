@@ -128,11 +128,11 @@ $(function(){
             var slider_el = this.el.find('div.slider');
             if (!slider_el.hasClass('ui-slider')) {
                 slider_el.slider({
-                    range: 'min',
-                    //range: true,
+                    //range: 'min',
+                    range: true,
                     min: 0, max: 100,
-                    //values: [this.odziv.get('t0'), this.odziv.get('t')],
-                    value: this.odziv.get('t'),
+                    values: [this.odziv.get('t0'), this.odziv.get('t')],
+                    //value: this.odziv.get('t'),
                     slide: this.sliderHandle
                 });
                 this.slider_value = this.el.find('div.slider-value').html(this.odziv.get('t0') + 's - ' + this.odziv.get('t') + 's');
@@ -191,10 +191,10 @@ $(function(){
         },
 
         sliderHandle: function(event, slider) {
-            $(this).parents('li').find('div.slider-value').html(/*slider.values[0] + "s - " + slider.values[1]*/ slider.value + 's');
+            $(this).parents('li').find('div.slider-value').html(slider.values[0] + "s - " + slider.values[1] + 's');
             var view = $(this).data('view');
-            //view.odziv.set({t0: slider.values[0]});
-            view.odziv.set({t: slider.value/*values[1]*/});
+            view.odziv.set({t0: slider.values[0]});
+            view.odziv.set({t: slider.values[1] /*slider.value*/});
             view.zadatak.save();
             view.render();
         },
@@ -227,12 +227,12 @@ $(function(){
             
             var odziv = slider_el.data('view').odziv;
             odziv.set({t: (odziv.get('t') > max) ? max : odziv.get('t')});
-            //odziv.set({t0: (odziv.get('t0') > max) ? max : odziv.get('t0')});
+            odziv.set({t0: (odziv.get('t0') > max) ? max : odziv.get('t0')});
 
-            //slider_el.slider('option', 'values', [odziv.get('t0'), odziv.get('t')]);
-            slider_el.slider('option', 'value', odziv.get('t'));
+            slider_el.slider('option', 'values', [odziv.get('t0'), odziv.get('t')]);
+            //slider_el.slider('option', 'value', odziv.get('t'));
             slider_el.slider('option', 'slide')
-                .call(slider_el, null, { handle: $('.ui-slider-handle', slider_el), value: odziv.get('t') });
+                .call(slider_el, null, { handle: $('.ui-slider-handle', slider_el), values: [odziv.get('t0'), odziv.get('t')] });
         }
     });
 
